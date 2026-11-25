@@ -17,6 +17,14 @@ describe('splitEqually', () => {
     expect(splitEqually(1234, ['a'])).toEqual({ a: 1234 });
   });
 
+  it('gives everyone 0 when the amount is 0', () => {
+    expect(splitEqually(0, ['a', 'b'])).toEqual({ a: 0, b: 0 });
+  });
+
+  it('throws a clear error for duplicate member IDs', () => {
+    expect(() => splitEqually(1000, ['a', 'a'])).toThrow(/duplicate/i);
+  });
+
   it('throws a clear error when there are no members', () => {
     expect(() => splitEqually(1000, [])).toThrow(/member/i);
   });
