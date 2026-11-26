@@ -24,6 +24,12 @@ export function splitEqually(amountCents: number, memberIds: string[]): Record<s
   const result: Record<string, number> = {};
   // 2. loop over memberIds with an index i
   //    result[memberIds[i]] = base, plus 1 if i < remainder
+  for (let i = 0; i < memberIds.length; i++){
+    if (i < remainder){
+      result[memberIds[i]] = base;
+    }
+
+  }
 
   return result;
 }
